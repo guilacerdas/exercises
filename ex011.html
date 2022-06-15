@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual o Seu País?</title>
+    <style>
+        body {
+            width: 100%;
+            font-size: 25px;
+            margin: center;
+            background-color: rgb(200, 145, 251);
+            color: rgb(71, 15, 123);
+        }
+
+        #resultado {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #txtpais {
+            width: 50%;
+            background-color: rgb(201, 122, 227);
+            color: rgb(71, 15, 123);
+            text-align: center;
+            line-height: 40px;
+            font-size: 30px;
+        }
+
+        #btncheck {
+            margin-top: 15px;
+            width: 50%;
+            background-color: rgb(201, 122, 227);
+            color: rgb(71, 15, 123);
+            font-size: 20px;
+        }
+
+        #btncheck:hover {
+            color: rgb(201, 122, 227);
+            background-color: rgb(71, 15, 123);
+            font-weight: bolder;
+        }
+
+        #btn_return {
+            margin-top: 15px;
+            width: 50%;
+            background-color: rgb(201, 122, 227);
+            color: rgb(71, 15, 123);
+            font-size: 20px;
+        }
+
+        #btn_return:hover {
+            color: rgb(201, 122, 227);
+            background-color: rgb(71, 15, 123);
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="resultado">
+        <label for="txtpais">
+            <p>Em qual pais você mora?</p>
+        </label>
+        <input type="text" name="txtpais" id="txtpais">
+        <input type="button" value="Realizar Checagem" id="btncheck" onclick="checagem()">
+    </div>
+    <script>
+        function checagem() {
+
+            var pais = document.getElementById('txtpais') //conexão entre input e javascript
+            var paisvalue = String(pais.value)
+            var resultado = window.document.getElementById('resultado')
+
+            if (paisvalue == 'Brasil') {
+                resultado.innerHTML = `<p>Seu país é o ${paisvalue}!!!</p> <p>Você é <strong>Brasileiro</strong> e mora no país com o maior percentual de transfeminicídio do mundo: a cada 10 assasinatos de pessoas trans no mundo (em 2021), quatro ocorreram no <strong>Brasil</strong>.</p>`
+                resultado.innerHTML += `<img src="https://i.pinimg.com/564x/cf/b3/f0/cfb3f0e6a4a06ac9d6f6ca44578ea233.jpg" alt="flag trans br">`
+                resultado.innerHTML += `<input type="button" value="Retornar" id="btn_return" onclick='retornar()'>`
+
+            } else {
+                resultado.innerHTML = `<p> Você é <strong>estrangeiro</strong>.</p>
+                <p>Respect Trans people</p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Transgender_Pride_flag.svg/1280px-Transgender_Pride_flag.svg.png" alt="transgender flag" width="30%">`
+                resultado.innerHTML += `<img src="https://10minutehr.com/wp-content/uploads/2014/08/Collection-national-flags.png" alt="multiples flags" width="100%"> `
+                resultado.innerHTML += `<input type="button" value="Retornar" id="btn_return" onclick='retornar()'>` 
+
+            } 
+        }
+        function retornar(){
+            location.reload()
+            
+        }
+    </script>
+</body>
+
+</html>
+
+

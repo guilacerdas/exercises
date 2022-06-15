@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detran</title>
+    <style>
+        #res {
+            border-radius: 5%;
+            background: blue;
+            margin: 25px;
+            width: 150px;
+            height: 150px;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+        #btnid:hover {
+            background-color: yellow;
+            color: red;
+            font: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sistema de Multas</h1>
+    <label for="txtvel"> Velocidade do carro:</label>
+    <input type="number" name="txtvel" id="txtvel">
+    <span>Km/h</span>
+    <input type="button" value="Verificar" onclick="calcular()" id="btnid">
+    <div id="res"><p>Checagem de velocidade</p>
+
+    </div>
+    <script>
+        function calcular() {
+            var txtv = document.getElementById('txtvel') //Essa linha é a ligação do javascript com a resposta da caixa txtvel
+            var vel = Number(txtv.value) //Transforma a string em número na variável vel
+            var res = window.document.getElementById('res')
+
+            if (vel > 60) {
+                res.innerHTML = `<p> Sua velocidade é de ${vel} Km/h e por isso você foi MULTADO</p>
+                <p>Dirija com cuidado, <strong>Use o cinto</strong>.</p>`
+                res.style.background = 'red'
+            } else {
+                res.innerHTML = `<p> A Sua velocidade atual é de <strong>${vel} Km/h.</strong></p>`
+                res.innerHTML += `<p> Dirija com cuidado, <strong>Use o cinto</strong>.</p>`
+                res.style.background = 'green'
+            }
+        }
+    </script>
+</body>
+
+</html>
